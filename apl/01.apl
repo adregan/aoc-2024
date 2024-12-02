@@ -1,7 +1,7 @@
  Day01←{
-     data←⎕CSV ⍵
-     ⍝ Undoubtedly a nicer way to do this, but I'm going to be hacky this year
-     a←(⊂∘⍋⌷⊢)⍎⍤(5∘↑)¨data
-     b←(⊂∘⍋⌷⊢)⍎⍤(¯5∘↑)¨data
-     +⌿a|⍤-b
+     ⍝ from apl cart
+     sortCols←({⍉(⊂∘⍋⌷⊢)⍤1⍉⍵}⍤2)
+     data←sortCols 1 0 0 1/⎕CSV⍠'Separator' ' '⊢⍵ ⍬ 4
+
+     partOne←+/|-/data
  }
